@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.exam.design.ApplyDao">
+
+	<!-- 지원자 저장 태그 -->
+	<!-- 
+	<insert id="mtdInsert">
+		insert into applicant (userName, userPhone, part, motive)
+		values (#{param1}, #{param2}, #{param3}, #{param4})
+	</insert>
+	 -->
+	 <insert id="mtdInsert" parameterType="java.util.HashMap">
+		insert into applicant (userName, userPhone, part, motive)
+		values (#{item1}, #{item2}, #{item3}, #{item4})
+	</insert>
+	
+	<select id="mtdList" resultType="com.exam.design.ApplyDto">
+		select * from applicant order by num desc
+	</select>
+	
+	<select id="mtdView" resultType="com.exam.design.ApplyDto">
+		select * from applicant where num=#{param1}
+	</select>
+	
+
+</mapper>	
